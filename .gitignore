@@ -1,0 +1,7 @@
+*.o
+*.bpf.o
+
+.vscode/
+.idea/
+
+*.log
