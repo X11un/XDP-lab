@@ -1,4 +1,4 @@
-.PHONY: lab-up lab-down lab-reset lab-status lab-test bpf xdp-load xdp-unload xdp-status
+.PHONY: lab-up lab-down lab-reset lab-status lab-test
 
 lab-up:
 	sudo ./lab/setup.sh
@@ -13,7 +13,6 @@ lab-reset:
 lab-status:
 	sudo ./lab/status.sh
 
-
 lab-test:
 	sudo ip netns exec client ping -c 1 10.200.0.1
 	sudo ip netns exec client ping -c 1 10.201.0.2
@@ -27,14 +26,16 @@ BPF_SRC := src/lb.bpf.c
 BPF_OBJ := build/lb.bpf.o
 
 
-.PHONY: bpf
+
+
+
+.PHONY: bpf xdp-load xdp-unload xdp-status
 
 bpf:
 	mkdir -p build
 	$(BPF_CLANG) $(BPF_CFLAGS) -c $(BPF_SRC) -o $(BPF_OBJ)
 
-
-XDP_IFACE := lb-font
+XDP_IFACE := lb-front
 
 xdp-load: bpf
 	sudo ip link set dev $(XDP_IFACE) xdp obj $(BPF_OBJ) sec xdp
