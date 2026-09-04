@@ -31,3 +31,13 @@ client -------- load balancer
 
 ## Destroy the lab
 `make lab-down`
+
+## Documentation
+
+The project moves forward in small incremental steps (packet parsing,
+filtering, then full L4 load-balancing). Each step is documented in the
+[`docs/`](docs/) folder, with the corresponding code, the behavior observed
+in the lab, and the commands used to verify it.
+
+- [docs/01-ethernet-ipv4-parsing.md](docs/01-ethernet-ipv4-parsing.md) —
+  Ethernet/IPv4 parsing and first filtering rule (ICMP drop)
