@@ -20,17 +20,14 @@ client -------- load balancer
            srv1           srv2
 ```
 
-## Start the lab
-`make lab-up`
+## Lab commands
 
-## Check the lab
-`make lab-status`
-
-## Test connectivity
-`make lab-test`
-
-## Destroy the lab
-`make lab-down`
+| Action | Command |
+|---|---|
+| Start the lab | `make lab-up` |
+| Check the lab status | `make lab-status` |
+| Test connectivity | `make lab-test` |
+| Destroy the lab | `make lab-down` |
 
 ## Documentation
 
@@ -41,3 +38,5 @@ in the lab, and the commands used to verify it.
 
 - [docs/01-ethernet-ipv4-parsing.md](docs/01-ethernet-ipv4-parsing.md) —
   Ethernet/IPv4 parsing and first filtering rule (ICMP drop)
+- [docs/02-tcp-vip-filtering.md](docs/02-tcp-vip-filtering.md) —
+  variable-length IPv4 header handling, TCP parsing, and VIP:port filtering
